@@ -2,7 +2,11 @@
 def ponto_fixo(g, x0, tol=1e-6, max_iter=100):
     xn = x0
     for n in range(max_iter):
-        x_novo = g(xn)
+        try:
+            x_novo = g(xn)
+        except (ZeroDivisionError, OverflowError, ValueError):
+            # g(xn) ficou indefinida (ex: divisão por zero)
+            return None, n + 1 
         
         # Critério de parada
         if abs(x_novo - xn) < tol:
@@ -37,5 +41,8 @@ else:
 raiz_g2, iter_g2 = ponto_fixo(g2, x0, tol, max_iter)
 if raiz_g2 is not None:
     print(f"Função g2(x): Convergiu para x = {raiz_g2:.6f} em {iter_g2} iteracoes.")
+elif iter_g2 < max_iter:
+    print(f"Função g2(x): Divergiu (retornou nulo) após {iter_g2} iterações "
+          f"-- a sequência ficou indefinida (ex: divisão por zero).")
 else:
     print(f"Função g2(x): Não convergiu (retornou nulo) após {max_iter} iterações.")
