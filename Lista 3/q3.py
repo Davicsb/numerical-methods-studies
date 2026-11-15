@@ -1,12 +1,11 @@
 # Questão 3 - Lista 3 - Métodos Numéricos
 # I(t) = exp(-t^2) * sin(t^3): amostragem, derivada numérica e integral numérica
+
+# ---------- a) amostragem do sinal ----------
 import sympy as sp
-import matplotlib
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 
-# ---------- a) amostragem do sinal ----------
 def amostrar(expr_str, a, b, n):
     """Recebe a string de I(t), o intervalo [a, b] e n amostras.
     Retorna as listas t e I(t), com n pontos igualmente espaçados."""
@@ -27,8 +26,7 @@ plt.xlabel("t (s)")
 plt.ylabel("I(t) (A)")
 plt.title("Corrente I(t) = exp(-t²)·sin(t³), n = 200")
 plt.grid(True)
-plt.savefig("q3a_corrente.png", dpi=150, bbox_inches="tight")
-plt.close()
+plt.show()
 
 
 # ---------- b) derivada por diferenças de 3 pontos ----------
@@ -48,7 +46,6 @@ def derivada_3pontos(t, I):
 t15, I15 = amostrar(EXPR, 0.0, 3.0, 15)
 dI15 = derivada_3pontos(t15, I15)
 
-print("=== b) n = 15 ===")
 print(f"{'i':>2} {'t':>8} {'I(t)':>10} {'dI/dt':>10}")
 for i in range(15):
     print(f"{i:2d} {t15[i]:8.4f} {I15[i]:10.6f} {dI15[i]:10.6f}")
@@ -64,10 +61,9 @@ plt.xlabel("t (s)")
 plt.title("I(t) e dI/dt (diferenças de 3 pontos, n = 15)")
 plt.legend()
 plt.grid(True)
-plt.savefig("q3b_derivada.png", dpi=150, bbox_inches="tight")
-plt.close()
+plt.show()
 
-# refinamento (apenas para conferir o t_max com malha mais fina)
+# conferência com malhas mais finas
 for n_ref in (101, 1001):
     tr, Ir = amostrar(EXPR, 0.0, 3.0, n_ref)
     dr = derivada_3pontos(tr, Ir)
@@ -91,7 +87,6 @@ def simpson_composta(expr_str, a, b, n):
 ns = list(range(2, 51, 2))
 Qs = [simpson_composta(EXPR, 0.0, 3.0, n) for n in ns]
 
-print("\n=== c) Simpson composta ===")
 print(f"{'n':>3} {'Q (C)':>14}")
 for n, q in zip(ns, Qs):
     print(f"{n:3d} {q:14.10f}")
@@ -103,5 +98,4 @@ plt.xlabel("n (subintervalos)")
 plt.ylabel("Q (C)")
 plt.title("Carga Q em função de n (Simpson composta)")
 plt.grid(True)
-plt.savefig("q3c_carga.png", dpi=150, bbox_inches="tight")
-plt.close()
+plt.show()
