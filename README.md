@@ -25,12 +25,13 @@ Each programming question was implemented in a separate `.py` file (`qN.py`). Pu
 
 ## List 3
 
-List 3 programming questions were implemented in separate `.py` files (`qN.py`) in the `Lista 3/ folder, following the same rules as previous lists: no numerical library ( numpy`, `scipy`) used in the algorithms. `matplotlib` Ã© usad only for generating graphs (does not perform numerical calculation).
+List 3 programming questions were implemented in separate `.py` files (`qN.py`) in the `Lista 3/` folder, following the same rules as previous lists: no numerical library (`numpy`, `scipy`) used in the algorithms. `matplotlib` is used only for generating graphs (does not perform numerical calculation).
+
 ---
 
 ## How to Run
 
-Requires Python 3 and the `matplotlib` library (used only in questions that request graph plotting). List 2's `q2.py also requires `numpy`:
+Requires Python 3 and the `matplotlib` library (used only in questions that request graph plotting). List 2's `q2.py` also requires `numpy`:
 
 ```bash
 pip install matplotlib numpy
@@ -42,15 +43,15 @@ Each question can be executed individually, inside the corresponding list folder
 python3 qN.py
 ```
 
-(Example: `python3 q3.py ` in the `Lista 2 folder`).
+(Example: `python3 q3.py` in the `Lista 2` folder.)
 
 Generated image files when running:
-- **List 1:** `q4.py` saves `questao4a_validadao.png`) and `questao4b_bissecao.png`.
-- **List 2*: `q2.py` saves `comparacao_6_curvas.png` and `q3.py  saves `questao3c_place.png.
-- **List 3:** ((images not yet generated))
+- **List 1:** `q4.py` saves `questao4a_validacao.png` and `questao4b_bissecao.png`.
+- **List 2:** `q2.py` saves `comparacao_6_curvas.png` and `q3.py` saves `questao3c_place.png`.
+- **List 3:** *(images not yet generated)*
 
 ---
 
 ## Delivery
 
-The final version of each list is consolidated in a single notebook (Google Colab), gathering the questions solved by each team member. The notebooks for List 1 and List 2 (`Lista1_°�TodosNmnÃ©ricos.ipynb and `Lista1_°�TodosNuméricos.ipynb`) are in the repository branch.
+The final version of each list is consolidated in a single notebook (Google Colab), gathering the questions solved by each team member. The notebooks for List 1 and List 2 (`Lista1_MétodosNuméricos.ipynb` and `Lista2_MétodosNuméricos.ipynb`) are in the repository branch.
